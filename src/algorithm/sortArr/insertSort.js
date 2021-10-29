@@ -16,11 +16,10 @@ function insertSort(arr) {
       }
     }
   }
-  return arr;
+  console.log(arr);
 }
 
-// var result = insertSort(arr);
-// console.log(result);
+insertSort(arr);
 
 /**
  * 插入排序的优化1
@@ -33,11 +32,10 @@ function insertSort2(arr) {
       [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
     }
   }
-  return arr;
+  console.log(arr);
 }
 
-// var result = insertSort2(arr);
-// console.log(result);
+insertSort2(arr);
 
 /**
  * 插入排序的优化2
@@ -53,8 +51,7 @@ function insertSort3(arr) {
     }
     arr[j] = temp;
   }
-  return arr;
+  console.log(arr);
 }
 
-var result = insertSort3([3]);
-console.log(result);
+insertSort3(arr);

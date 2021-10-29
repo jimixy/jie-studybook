@@ -1,6 +1,12 @@
-var arr = [44, 38, 5, 47, 15, 36];
+var arr = [8, 9, 1, 7, 2, 3, 5, 4, 6, 0];
 
-// 选择排序
+/**
+ * 选择排序
+ * 原理：
+ * 1. 每次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置
+ * 2. 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+ * 3. 以此类推，直到所有元素均排序完毕。
+ */
 function selectionSort(arr) {
   let len = arr.length;
   for (let i = 0; i < len; i++) {
@@ -16,8 +22,7 @@ function selectionSort(arr) {
       arr[minIndex] = temp;
     }
   }
-  return arr;
+  console.log(arr);
 }
 
-var result = selectionSort(arr);
-console.log(result);
+selectionSort(arr);

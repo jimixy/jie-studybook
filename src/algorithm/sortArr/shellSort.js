@@ -24,8 +24,7 @@ function shellSort(arr) {
       arr[j] = temp;
     }
   }
-  return arr;
+  console.log(arr);
 }
 
-var result = shellSort(arr);
-console.log(result);
+shellSort(arr);

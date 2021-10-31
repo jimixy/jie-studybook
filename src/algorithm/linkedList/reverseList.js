@@ -1,4 +1,7 @@
-/** 翻转链表 */
+/**
+ * 反转链表
+ * https://leetcode-cn.com/problems/reverse-linked-list/submissions/
+ */
 const reverseList = (head) => {
   let prev = null;
   let curr = head;
@@ -10,6 +13,17 @@ const reverseList = (head) => {
     curr = next;
   }
   return prev;
+};
+
+// 递归实现
+const reverseList2 = (head, prev = null) => {
+  if (head == null || head.next == null) {
+    return head;
+  }
+  const rev = reverseList2(head.next);
+  head.next.next = head;
+  head.next = null;
+  return rev;
 };
 
 /** 测试代码 */
@@ -46,5 +60,5 @@ class genListNode {
 
 const arr = [1, 2, 6, 3, 4, 5, 6];
 const list = new genListNode(arr);
-console.log(list.toString());
-console.log(JSON.stringify(reverseList(list)));
+console.log(list.toString(), JSON.stringify(list));
+console.log(JSON.stringify(reverseList2(list)));

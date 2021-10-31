@@ -36,19 +36,19 @@ const removeElements2 = (head, val) => {
 };
 
 // 使用递归
-const removeElements3 = (head, val) => {
-  if (head == null) return null;
-  head.next = removeElements3(head.next, val);
-  return head.val === val ? head.next : head;
+const removeElements3 = (node, val) => {
+  if (node.val === val) return node.next;
+  node.next = removeElements3(node.next, val);
+  return node;
 };
 
+/** 测试代码 */
 class ListNode {
   constructor(val) {
     this.val = val;
     this.next = null;
   }
 }
-
 class genListNode {
   val;
   next;

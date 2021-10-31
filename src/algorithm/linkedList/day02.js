@@ -35,6 +35,13 @@ const removeElements2 = (head, val) => {
   return dummy.next;
 };
 
+// 使用递归
+const removeElements3 = (head, val) => {
+  if (head == null) return null;
+  head.next = removeElements3(head.next, val);
+  return head.val === val ? head.next : head;
+};
+
 class ListNode {
   constructor(val) {
     this.val = val;
@@ -70,5 +77,5 @@ class genListNode {
 const arr = [1, 2, 6, 3, 4, 5, 6];
 const list = new genListNode(arr);
 console.log(list.toString());
-console.log(removeElements2(list, 6));
+console.log(removeElements3(list, 2));
 console.log(list.toString());

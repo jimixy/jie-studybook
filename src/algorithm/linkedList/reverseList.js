@@ -39,6 +39,24 @@ const reverseList3 = (head) => {
   return dummy.next;
 };
 
+function reverseList4(head) {
+  if (head == null) return null;
+  return reverse(head)[0];
+}
+
+/**
+1. 参数
+2. 返回值[头节点、不为 null 的尾节点]
+3. 终止条件
+ */
+function reverse(node) {
+  if (node.next == null) return [node, node];
+  const [newHead, newTail] = reverse(node.next);
+  node.next = null;
+  newTail.next = node;
+  return [newHead, node];
+}
+
 /** 测试代码 */
 class ListNode {
   constructor(val) {
@@ -74,4 +92,4 @@ class genListNode {
 const arr = [1, 2, 6, 3, 4, 5, 6];
 const list = new genListNode(arr);
 console.log(list.toString(), JSON.stringify(list));
-console.log(JSON.stringify(reverseList3(list)));
+console.log(JSON.stringify(reverseList4(list)));

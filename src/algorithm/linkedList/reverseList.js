@@ -39,6 +39,7 @@ const reverseList3 = (head) => {
   return dummy.next;
 };
 
+// 递归
 function reverseList4(head) {
   if (head == null) return null;
   return reverse(head)[0];

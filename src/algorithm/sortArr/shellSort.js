@@ -10,11 +10,8 @@ var arr = [8, 9, 1, 7, 2, 3, 5, 4, 6, 0];
  */
 function shellSort(arr) {
   let len = arr.length;
-  let gap = 1;
-  while (gap < len / 3) {
-    gap = gap * 3 + 1;
-  }
-  for (gap; gap > 0; gap = Math.floor(gap / 3)) {
+  let gap = Math.floor(len / 2);
+  for (gap; gap > 0; gap = Math.floor(gap / 2)) {
     for (let i = gap; i < len; i++) {
       let temp = arr[i];
       let j;

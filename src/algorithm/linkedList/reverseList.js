@@ -16,7 +16,7 @@ const reverseList = (head) => {
 };
 
 // 递归实现
-const reverseList2 = (head, prev = null) => {
+const reverseList2 = (head) => {
   if (head == null || head.next == null) {
     return head;
   }
@@ -24,6 +24,19 @@ const reverseList2 = (head, prev = null) => {
   head.next.next = head;
   head.next = null;
   return rev;
+};
+
+// 虚拟头实现
+const reverseList3 = (head) => {
+  let dummy = new ListNode(0);
+  let cur = head;
+  while (head) {
+    cur = head;
+    head = head.next;
+    cur.next = dummy.next;
+    dummy.next = cur;
+  }
+  return dummy.next;
 };
 
 /** 测试代码 */
@@ -61,4 +74,4 @@ class genListNode {
 const arr = [1, 2, 6, 3, 4, 5, 6];
 const list = new genListNode(arr);
 console.log(list.toString(), JSON.stringify(list));
-console.log(JSON.stringify(reverseList2(list)));
+console.log(JSON.stringify(reverseList3(list)));

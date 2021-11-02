@@ -44,6 +44,11 @@ function removeNthFromEnd2(head, n) {
   return head;
 }
 
+// function removeNthFromEnd3(head, n) {
+//   function solutions() {}
+//   return solutions(head, n);
+// }
+
 /** 测试代码 */
 class ListNode {
   constructor(val) {

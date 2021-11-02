@@ -10,28 +10,6 @@
       "name": "Current file",
       "program": "${file}",
       "cwd": "${cwd}"
-    },
-    {
-      "name": "Launch Edge",
-      "request": "launch",
-      "type": "pwa-msedge",
-      "url": "http://127.0.0.1:3001/login",
-      "webRoot": "${workspaceFolder}",
-      "sourceMaps": true,
-      "smartStep": true
-    },
-    {
-      "name": "Attach to Chrome",
-      "port": 9222,
-      "request": "attach",
-      "type": "chrome",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "Launch Microsoft Edge and open the Edge DevTools",
-      "request": "launch",
-      "type": "vscode-edge-devtools.debug",
-      "url": "" // Provide your project's url to finish configuring
     }
   ]
 }

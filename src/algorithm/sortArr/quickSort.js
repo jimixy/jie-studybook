@@ -20,7 +20,38 @@ const quickSort = (arr) => {
   return [...quickSort(left), pivot, ...quickSort(right)];
 };
 
-const arr = [3, 5, 2, 1, 4, 6, 7, 8, 9, 10];
+// 第二种快排
+const quickSort2 = (arr) => {
+  if (arr == null || arr.length == 0) return;
+  sort(arr, 0, arr.length - 1);
+  return arr;
+};
 
-const result = quickSort(arr);
-console.log(result);
+const sort = (arr, start, end) => {
+  if (start >= end) return;
+  let left = start,
+    right = end;
+  // 1. 获取中点，不是初始点
+  const pivot = arr[Math.floor((start + end) / 2)];
+  // 2. left <= right 不是 left < right
+  while (left <= right) {
+    // 3. arr[left] < pivot 不是 <=
+    while (left <= right && arr[left] < pivot) {
+      left++;
+    }
+    while (left <= right && arr[right] > pivot) {
+      right--;
+    }
+    if (left <= right) {
+      [arr[right], arr[left]] = [arr[left], arr[right]];
+      left++;
+      right--;
+    }
+  }
+  sort(arr, start, right);
+  sort(arr, left, end);
+};
+
+const arr = [8, 9, 1, 7, 2, 3, 5, 4, 6, 0];
+const result = quickSort2(arr);
+console.log(1, result);

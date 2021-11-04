@@ -1,7 +1,7 @@
-// 链表与递归
-
-// 203. 移除链表元素
-// https://leetcode-cn.com/problems/remove-linked-list-elements/
+/**
+ * 203. 移除链表元素
+ * https://leetcode-cn.com/problems/remove-linked-list-elements/
+ */
 const removeElements = (head, val) => {
   while (head != null && head.val == val) {
     head = head.next;

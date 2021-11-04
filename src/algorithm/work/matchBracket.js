@@ -1,22 +1,32 @@
-const input = "{]";
-const left = ["(", "{", "["];
-const right = [")", "}", "]"];
-const arr = [];
-let isRight = true;
-for (let i = 0; i < input.length; i++) {
-  const value = input[i];
-  if (left.includes(value)) {
-    arr.push(value);
-  } else {
-    const item = arr.pop();
-    const index = right.findIndex((k) => k == value);
-    if (item != left[index]) {
-      isRight = false;
-      break;
+/**
+ * 20. 有效的括号
+ * https://leetcode-cn.com/problems/valid-parentheses/
+ */
+const isValid = function (s) {
+  const arr = [];
+  let isMatch = true;
+  const mapper = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+  for (let i = 0; i < s.length; i++) {
+    const item = s[i];
+    const isLeft = mapper[item];
+    if (isLeft) {
+      arr.push(item);
+    } else {
+      const prev = arr.pop();
+      if (item != mapper[prev]) {
+        isMatch = false;
+      }
     }
   }
-}
-if (arr.length) {
-  isRight = false;
-}
-console.log(isRight);
+  if (arr.length) {
+    isMatch = false;
+  }
+  console.log(isMatch);
+  return isMatch;
+};
+
+isValid("[{]");

@@ -1,5 +1,5 @@
 /**
- * 合并两个有序链表
+ * 21. 合并两个有序链表
  * https://leetcode-cn.com/problems/merge-two-sorted-lists/
  */
 var mergeTwoLists = function (l1, l2) {

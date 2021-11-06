@@ -58,8 +58,39 @@ class MinHeap {
   }
 }
 
-const minHeap = new MinHeap();
-minHeap.insert(3);
-minHeap.insert(2);
-minHeap.insert(1);
-minHeap.pop();
+// minHeap.insert(3);
+// minHeap.insert(2);
+// minHeap.insert(1);
+// minHeap.pop();
+
+/**
+ * 数据流中的第 K 大元素
+ * https: //leetcode-cn.com/problems/kth-largest-element-in-a-stream/
+ */
+function KthLargest(k, nums) {
+  this.minHeap = new MinHeap();
+  this.k = k;
+  nums.forEach((m) => {
+    this.minHeap.insert(m);
+    if (this.minHeap.size() > k) {
+      this.minHeap.pop();
+    }
+  });
+}
+
+KthLargest.prototype.add = function (val) {
+  this.minHeap.insert(val);
+  if (this.minHeap.size() > this.k) {
+    this.minHeap.pop();
+  }
+  console.log(this.minHeap.peak());
+  return this.minHeap.peak();
+};
+
+const kthLargest = new KthLargest(2, [0]);
+
+kthLargest.add(-1); // return 4
+kthLargest.add(1); // return 5
+kthLargest.add(-2); // return 5
+kthLargest.add(-4); // return 8
+kthLargest.add(3); // return 8

@@ -11,6 +11,7 @@ const reverseBinaryTree = function (root) {
   return root;
 };
 
+/** 测试 */
 class TreeNode {
   constructor(val) {
     this.val = val;

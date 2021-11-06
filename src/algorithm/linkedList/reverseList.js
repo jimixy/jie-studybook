@@ -28,7 +28,7 @@ const reverseList2 = (head) => {
 
 // 虚拟头实现
 const reverseList3 = (head) => {
-  let dummy = new ListNode(0);
+  let dummy = new ListNode(-1);
   let cur = head;
   while (head) {
     cur = head;
@@ -93,4 +93,4 @@ class genListNode {
 const arr = [1, 2, 6, 3, 4, 5, 6];
 const list = new genListNode(arr);
 console.log(list.toString(), JSON.stringify(list));
-console.log(JSON.stringify(reverseList4(list)));
+console.log(JSON.stringify(reverseList3(list)));

@@ -15,3 +15,7 @@
     - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/sortArr)
     - 代码 [掘金](https://juejin.cn/post/7025074012153708551)
     - 代码 [bilibili](https://www.bilibili.com/video/BV163411k7Tv?spm_id_from=333.999.0.0)
+
+  - 2021.11.7 堆数据结构
+    - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/heap)
+    - 代码 [掘金](https://juejin.cn/post/7027652995491823652)

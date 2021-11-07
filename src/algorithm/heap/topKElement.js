@@ -1,6 +1,3 @@
-/**
- * 最小堆
- */
 class MinHeap {
   constructor() {
     this.heap = [];
@@ -22,7 +19,10 @@ class MinHeap {
   siftUp(index) {
     if (index === 0) return;
     let parentIndex = this.getParentIndex(index);
-    if (this.heap[index] < this.heap[parentIndex]) {
+    if (
+      this.heap[index] &&
+      this.heap[index].value < this.heap[parentIndex].value
+    ) {
       this.swap(index, parentIndex);
       this.siftUp(parentIndex);
     }
@@ -40,11 +40,17 @@ class MinHeap {
   siftDown(index) {
     let leftIndex = this.getLeftIndex(index);
     let rightIndex = this.getRightIndex(index);
-    if (this.heap[leftIndex] < this.heap[index]) {
+    if (
+      this.heap[leftIndex] &&
+      this.heap[leftIndex].value < this.heap[index].value
+    ) {
       this.swap(leftIndex, index);
       this.siftDown(leftIndex);
     }
-    if (this.heap[rightIndex] < this.heap[index]) {
+    if (
+      this.heap[rightIndex] &&
+      this.heap[rightIndex].value < this.heap[index].value
+    ) {
       this.swap(rightIndex, index);
       this.siftDown(rightIndex);
     }
@@ -57,43 +63,22 @@ class MinHeap {
     return this.heap.length;
   }
 }
-
-// minHeap.insert(3);
-// minHeap.insert(2);
-// minHeap.insert(1);
-// minHeap.pop();
-
 /**
- * 数据流中的第 K 大元素
- * https: //leetcode-cn.com/problems/kth-largest-element-in-a-stream/
- * 步骤：
- * 1. 创建一个最小堆，用来保存前 k 个元素
- * 2. 每次添加一个元素，如果大于堆顶元素，则替换堆顶元素，并且重新调整堆
+ * 前 K 个高频元素
+ * https://leetcode-cn.com/problems/top-k-frequent-elements/
+ * 算法复杂度：O(nlogk)
  */
-function KthLargest(k, nums) {
-  this.minHeap = new MinHeap();
-  this.k = k;
+var topKFrequent = function (nums, k) {
+  const map = new Map();
   nums.forEach((m) => {
-    this.minHeap.insert(m);
-    if (this.minHeap.size() > k) {
-      this.minHeap.pop();
+    map.set(m, map.has(m) ? map.get(m) + 1 : 1);
+  });
+  const minHeap = new MinHeap();
+  map.forEach((value, key) => {
+    minHeap.insert({ value, key });
+    if (minHeap.size() > k) {
+      minHeap.pop();
     }
   });
-}
-
-KthLargest.prototype.add = function (val) {
-  this.minHeap.insert(val);
-  if (this.minHeap.size() > this.k) {
-    this.minHeap.pop();
-  }
-  console.log(this.minHeap.peak());
-  return this.minHeap.peak();
+  return minHeap.heap.map((m) => m.key);
 };
-
-const kthLargest = new KthLargest(2, [0]);
-
-kthLargest.add(-1); // return 4
-kthLargest.add(1); // return 5
-kthLargest.add(-2); // return 5
-kthLargest.add(-4); // return 8
-kthLargest.add(3); // return 8

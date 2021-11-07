@@ -26,6 +26,7 @@ function traversal(root, type) {
       }
     }
   }
+  console.log(type, result);
   return result;
 }
 
@@ -78,3 +79,5 @@ const createBinaryTree = function (arr) {
 
 const root = createBinaryTree([1, null, 2, 3]);
 preorderTraversal(root);
+inorderTraversal(root);
+postorderTraversal(root);

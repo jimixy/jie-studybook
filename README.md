@@ -16,6 +16,12 @@
     - 代码 [掘金](https://juejin.cn/post/7025074012153708551)
     - 代码 [bilibili](https://www.bilibili.com/video/BV163411k7Tv?spm_id_from=333.999.0.0)
 
+  - 2021.11.6 二叉树
+
+    - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/binaryTree)
+    - 代码 [掘金](https://juejin.cn/post/7026365944301617188)
+    - 代码 [bilibili](https://www.bilibili.com/video/BV1WU4y1g7LX/)
+
   - 2021.11.7 堆数据结构
     - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/heap)
     - 代码 [掘金](https://juejin.cn/post/7027652995491823652)

@@ -1,9 +1,24 @@
-// 获取数组最大值
-function getMax(arr) {
-  return Math.max.apply(null, arr);
-}
-
-// 数组排序
-function sort(arr) {
-  return arr.sort((a, b) => a - b);
-}
+Promise.resolve()
+  .then(() => {
+    console.log("1");
+    Promise.resolve()
+      .then(() => {
+        console.log("1-1");
+        return Promise.resolve();
+      })
+      .then(() => {
+        console.log("1-2");
+      });
+  })
+  .then(() => {
+    console.log("2");
+  })
+  .then(() => {
+    console.log("3");
+  })
+  .then(() => {
+    console.log("4");
+  })
+  .then(() => {
+    console.log("5");
+  });

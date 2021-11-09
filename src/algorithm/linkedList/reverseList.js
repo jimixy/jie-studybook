@@ -7,9 +7,13 @@ const reverseList = (head) => {
   let curr = head;
   let next = null;
   while (curr) {
+    // 保持下一次的next
     next = curr.next;
+    // 将下一个的next指向前一个
     curr.next = prev;
+    // 保持前一个的值
     prev = curr;
+    // 指针往后移动
     curr = next;
   }
   return prev;
@@ -39,7 +43,7 @@ const reverseList3 = (head) => {
   return dummy.next;
 };
 
-// 递归
+// 递归实现2
 function reverseList4(head) {
   if (head == null) return null;
   return reverse(head)[0];

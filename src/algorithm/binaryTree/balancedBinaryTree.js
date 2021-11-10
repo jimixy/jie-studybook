@@ -1,6 +1,11 @@
 /**
  * 平衡二叉树
  * https://leetcode-cn.com/problems/balanced-binary-tree/
+ * 步骤：
+ * 1. 判断根节点是否为空
+ * 2. 判断左子树是否为空
+ * 3. 判断右子树是否为空
+ * 4. 判断左子树和右子树的高度差是否大于1
  */
 const balancedBinaryTree = function (root) {
   if (!root) return true;

@@ -65,7 +65,7 @@ class MinHeap {
 
 /**
  * 数据流中的第 K 大元素
- * https: //leetcode-cn.com/problems/kth-largest-element-in-a-stream/
+ * https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/
  * 步骤：
  * 1. 创建一个最小堆，用来保存前 k 个元素
  * 2. 每次添加一个元素，如果大于堆顶元素，则替换堆顶元素，并且重新调整堆

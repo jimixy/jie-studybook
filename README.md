@@ -8,8 +8,6 @@
 
 - Phase01 算法学习
 
-  > 在算法学习过程中推荐使用 vscode 插件 visualizer 插件一步步查看数据的变动, 使用 F5 快捷键就可以断点当前代码
-
   - 2021.11.7 堆数据结构
 
     - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/heap)

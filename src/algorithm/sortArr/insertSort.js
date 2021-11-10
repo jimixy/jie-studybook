@@ -19,7 +19,7 @@ function insertSort(arr) {
   console.log(arr);
 }
 
-insertSort(arr);
+// insertSort(arr);
 
 /**
  * 插入排序的优化1
@@ -35,7 +35,7 @@ function insertSort2(arr) {
   console.log(arr);
 }
 
-insertSort2(arr);
+// insertSort2(arr);
 
 /**
  * 插入排序的优化2
@@ -54,4 +54,5 @@ function insertSort3(arr) {
   console.log(arr);
 }
 
-insertSort3(arr);
+const arr3 = [5, 2, 3, 1];
+insertSort3(arr3);

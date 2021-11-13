@@ -8,6 +8,11 @@
 
 - Phase01 算法学习
 
+  - 2021.11.14 链表
+
+    - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/linkedList)
+    - 代码 [掘金](https://juejin.cn/post/7030082344228749349)
+
   - 2021.11.7 堆数据结构
 
     - 代码 [github](https://github.com/jimixy/jie-studybook/tree/main/src/algorithm/heap)

@@ -30,7 +30,7 @@ class ListNode {
   }
 }
 
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -56,7 +56,7 @@ class genListNode {
 }
 
 const arr = [1, 2, 3, 4, 5];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 // const result = reversePrint(list);
 // const result = reversePrint2(list);
 console.log(result);

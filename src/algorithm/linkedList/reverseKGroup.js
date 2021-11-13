@@ -33,7 +33,7 @@ class ListNode {
     this.next = null;
   }
 }
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -59,6 +59,6 @@ class genListNode {
 }
 
 const arr1 = [1, 2, 3, 4, 5];
-const list1 = new genListNode(arr1);
+const list1 = new LinkedList(arr1);
 console.log(list1.toString());
 console.log(JSON.stringify(reverseKGroup(list1, 2)));

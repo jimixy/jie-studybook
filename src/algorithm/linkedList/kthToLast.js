@@ -41,7 +41,7 @@ class ListNode {
   }
 }
 
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -67,7 +67,7 @@ class genListNode {
 }
 
 const arr = [1, 2, 3, 4, 5];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 // const result = kthToLast(list, 2);
 const result = kthToLast2(list, 1);
 console.log(result);

@@ -30,7 +30,7 @@ class ListNode {
     this.next = null;
   }
 }
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -56,6 +56,6 @@ class genListNode {
 }
 
 const arr = [1, 3, 1];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 console.log(list.toString());
 console.log(isPalindrome(list));

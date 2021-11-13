@@ -49,7 +49,7 @@ class ListNode {
     this.next = null;
   }
 }
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -75,7 +75,7 @@ class genListNode {
 }
 
 const arr = [1, 2, 6, 3, 4, 5, 6];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 console.log(list.toString());
 console.log(removeElements3(list, 2));
 console.log(list.toString());

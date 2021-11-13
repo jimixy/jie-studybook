@@ -35,9 +35,13 @@ const reverseList3 = (head) => {
   let dummy = new ListNode(-1);
   let cur = head;
   while (head) {
+    // 缓存head
     cur = head;
+    // 指针往后移动
     head = head.next;
+    // 将下一个的next指向上一个
     cur.next = dummy.next;
+    // 保存上一个的值
     dummy.next = cur;
   }
   return dummy.next;
@@ -69,7 +73,7 @@ class ListNode {
     this.next = null;
   }
 }
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -95,6 +99,6 @@ class genListNode {
 }
 
 const arr = [1, 2, 6, 3, 4, 5, 6];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 console.log(list.toString(), JSON.stringify(list));
 console.log(JSON.stringify(reverseList3(list)));

@@ -57,7 +57,7 @@ class ListNode {
   }
 }
 
-class genListNode {
+class LinkedList {
   val;
   next;
   constructor(arr) {
@@ -83,6 +83,6 @@ class genListNode {
 }
 
 const arr = [1, 2, 3, 4, 5];
-const list = new genListNode(arr);
+const list = new LinkedList(arr);
 console.log(list.toString(), JSON.stringify(list));
 console.log(JSON.stringify(removeNthFromEnd2(list, 5)));

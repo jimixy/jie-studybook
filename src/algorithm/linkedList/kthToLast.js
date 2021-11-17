@@ -1,5 +1,8 @@
 /**
  * 返回倒数第 k 个节点
+ * 分析：
+ * 1. 双指针，一个指针先走 k 步，然后两个指针一起走，当 p2 指向最后一个节点时，p1 指向倒数第 k 个节点
+ *
  * https://leetcode-cn.com/problems/kth-to-last-node-in-a-linked-list/
  */
 
@@ -17,6 +20,23 @@ function kthToLast(head, k) {
   }
   return p1.val;
 }
+
+// 计数实现
+var getKthFromEnd = function (head, k) {
+  let cur = head;
+  let sum = 0;
+  while (cur) {
+    cur = cur.next;
+    sum++;
+  }
+  cur = head;
+  let val = sum - k;
+  while (val > 0 && cur) {
+    cur = cur.next;
+    val--;
+  }
+  return cur.val;
+};
 
 // 递归实现
 function kthToLast2(head, k) {

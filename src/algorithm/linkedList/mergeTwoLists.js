@@ -8,15 +8,18 @@ var mergeTwoLists = function (l1, l2) {
   let m2 = l2;
   let cur = dummyHead;
   while (m1 && m2) {
+    // 将小的放入新链表
     if (m1.val < m2.val) {
       cur.next = m1;
       m1 = m1.next;
     } else {
+      // 将大的放入新链表
       cur.next = m2;
       m2 = m2.next;
     }
     cur = cur.next;
   }
+  // 如果有一个链表已经遍历完了，那么直接将另一个链表的剩余部分接到cur.next
   cur.next = m2 ? m2 : m1;
   return dummyHead.next;
 };

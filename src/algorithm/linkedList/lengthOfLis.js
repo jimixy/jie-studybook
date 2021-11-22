@@ -5,10 +5,13 @@
 function lengthOfLis(nums) {
   let len = nums.length;
   if (len === 0) return 0;
+  // 存储每个元素的最长递增子序列长度
   let dp = new Array(len).fill(1);
   for (let i = 1; i < len; i++) {
     for (let j = 0; j < i; j++) {
+      // 当前元素比前面的元素大，则更新dp[i]
       if (nums[i] > nums[j]) {
+        // 当前元素的最长递增子序列长度 = 前面元素的最长递增子序列长度 + 1
         dp[i] = Math.max(dp[i], dp[j] + 1);
       }
     }
@@ -17,34 +20,57 @@ function lengthOfLis(nums) {
 }
 
 function lengthOfLis2(nums) {
-  // 每堆的堆顶
+  // 存储每个元素的最长递增子序列长度
   const top = [];
-  // 牌堆数初始化为0
   let piles = 0;
   for (let i = 0; i < nums.length; i++) {
-    // 要处理的扑克牌
     let poker = nums[i];
-    // 左堆和最右堆进行二分搜索，因为堆顶是有序排的，最终找到该牌要插入的堆
+    // 找到比当前元素小的最大的元素
     let left = 0,
       right = piles;
-    //搜索区间是左闭右开
     while (left < right) {
-      let mid = left + ((right - left) >> 1);
-      if (top[mid] > poker) {
-        right = mid;
-      } else if (top[mid] < poker) {
+      let mid = (right + left) >> 1;
+      if (top[mid] < poker) {
         left = mid + 1;
       } else {
         right = mid;
       }
     }
-    //  没找到合适的牌堆，新建一堆
+    // 如果没有找到比当前元素大的，则插入到left位置
     if (left == piles) piles++;
-    // 把这张牌放到堆顶
     top[left] = poker;
   }
   return piles;
 }
 
-const nums = [10, 9, 2, 5, 3, 7, 101, 18];
+function lengthOfLis3(nums) {
+  const n = nums.length;
+  let max = 1;
+  if (n <= 1) return n;
+  const dp = [null, nums[0]];
+  for (let i = 1; i < n; i++) {
+    if (dp[max] < nums[i]) {
+      dp[++max] = nums[i];
+      continue;
+    }
+    // 二分查找
+    let left = 1,
+      right = max,
+      mid;
+    while (left <= right) {
+      mid = (right + left) >> 1;
+      if (dp[mid] < nums[i]) {
+        //在左边
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+    // 替换掉比当前元素大的那个
+    dp[left] = nums[i];
+  }
+  return max;
+}
+
+const nums = [0, 1, 0, 3, 2, 3];
 console.log(lengthOfLis2(nums));

@@ -1,6 +1,10 @@
 /**
  * 重排链表
  * https://leetcode-cn.com/problems/reorder-list/
+ * 分析：
+ * 1. 找出链表后半段需要重排的部分
+ * 2. 反转后面需要重排的部分
+ * 3. 将后面需要重排的部分插入到前面需要重排的部分之后
  */
 
 /** 解法一 */
@@ -41,7 +45,9 @@ function reverseList(head) {
   return prev;
 }
 
-/** 解法二 */
+/**
+ * 解法二
+ */
 function reorderList2(head) {
   const arr = [];
   while (head) {

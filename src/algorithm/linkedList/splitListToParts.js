@@ -1,6 +1,10 @@
 /**
  * 分隔链表
  * https://leetcode-cn.com/problems/split-linked-list-in-parts/
+ * 步骤：
+ * 1. 先遍历链表，计算链表长度
+ * 2. 再计算每个分段的长度
+ * 3. 将链表分割成多个段
  */
 
 function splitListToParts(head, k) {

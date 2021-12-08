@@ -22,3 +22,23 @@ var backspaceCompare = function (s, t) {
   }
   return str1.join("") === str2.join("");
 };
+
+function backspaceCompare2(S, T) {
+  let s = "";
+  let t = "";
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === "#") {
+      s = s.slice(0, -1);
+    } else {
+      s += S[i];
+    }
+  }
+  for (let i = 0; i < T.length; i++) {
+    if (T[i] === "#") {
+      t = t.slice(0, -1);
+    } else {
+      t += T[i];
+    }
+  }
+  return s === t;
+}

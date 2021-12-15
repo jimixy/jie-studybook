@@ -8,7 +8,6 @@ function kthLargest(root, k) {
   const dfs = (node) => {
     if (!node) return;
     dfs(node.right);
-    if (k == 0) return;
     if (--k == 0) {
       res = node.val;
     }

@@ -1,7 +1,12 @@
-/**
- * 最小堆
- */
-class MinHeap {
+var getLeastNumbers = function (arr, k) {
+  const maxHead = new MaxHeap(k);
+  arr.forEach((j) => {
+    maxHead.insert(j);
+  });
+  return maxHead.heap;
+};
+
+class MaxHeap {
   constructor(maxSize) {
     this.heap = [];
     this.maxSize = maxSize;
@@ -9,8 +14,13 @@ class MinHeap {
   insert(val) {
     this.heap.push(val);
     this.siftUp(this.heap.length - 1);
-    if (this.size() > this.maxSize) {
-      this.pop();
+    const size = this.size();
+    if (size > this.maxSize) {
+      if (size === 1) {
+        this.heap.pop();
+      } else {
+        this.pop();
+      }
     }
   }
   getParentIndex(index) {
@@ -25,7 +35,7 @@ class MinHeap {
   siftUp(index) {
     if (index === 0) return;
     let parentIndex = this.getParentIndex(index);
-    if (this.heap[index] < this.heap[parentIndex]) {
+    if (this.heap[index] > this.heap[parentIndex]) {
       this.swap(index, parentIndex);
       this.siftUp(parentIndex);
     }
@@ -43,11 +53,11 @@ class MinHeap {
   siftDown(index) {
     let leftIndex = this.getLeftIndex(index);
     let rightIndex = this.getRightIndex(index);
-    if (this.heap[leftIndex] < this.heap[index]) {
+    if (this.heap[leftIndex] > this.heap[index]) {
       this.swap(leftIndex, index);
       this.siftDown(leftIndex);
     }
-    if (this.heap[rightIndex] < this.heap[index]) {
+    if (this.heap[rightIndex] > this.heap[index]) {
       this.swap(rightIndex, index);
       this.siftDown(rightIndex);
     }
@@ -61,30 +71,4 @@ class MinHeap {
   }
 }
 
-/**
- * @param {number} k
- * @param {number[]} nums
- */
-var KthLargest = function (k, nums) {
-  this.minHead = new MinHeap(k);
-  nums.forEach((m) => {
-    this.minHead.insert(m);
-  });
-};
-
-/**
- * @param {number} val
- * @return {number}
- */
-KthLargest.prototype.add = function (val) {
-  this.minHead.insert(val);
-  return this.minHead.peak();
-};
-
-const kthLargest = new KthLargest(2, [0]);
-
-kthLargest.add(-1); // return 4
-kthLargest.add(1); // return 5
-kthLargest.add(-2); // return 5
-kthLargest.add(-4); // return 8
-kthLargest.add(3); // return 8
+const result = getLeastNumbers([0, 0, 0, 2, 0, 5], 0);

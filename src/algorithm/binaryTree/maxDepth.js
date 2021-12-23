@@ -25,3 +25,16 @@ var maxDepth2 = function (root) {
   };
   return calculateDeep(root);
 };
+
+function maxDepth(root) {
+  let max = 0;
+  const dfs = (node, level) => {
+    if (!node) return 0;
+    level++;
+    max = level > max ? level : max;
+    dfs(node.left, level);
+    dfs(node.right, level);
+  };
+  dfs(root, 0);
+  return max;
+}

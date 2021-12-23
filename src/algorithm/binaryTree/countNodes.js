@@ -23,3 +23,24 @@ function countHeight(root) {
   }
   return height;
 }
+
+/** 解法二 */
+function countNodes(root) {
+  let l = root,
+    r = root;
+  let hl = 0,
+    hr = 0;
+  while (l) {
+    l = l.left;
+    hl++;
+  }
+  while (r) {
+    r = r.right;
+    hr++;
+  }
+  // 如果左右子树的高度相同，说明是一颗满二叉树
+  if (hl == hr) {
+    return Math.pow(2, hl) - 1;
+  }
+  return 1 + countNodes(root.left) + countNodes(root.right);
+}

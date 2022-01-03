@@ -9,7 +9,6 @@ function smallestStringWithSwaps(s, pairs) {
     uf.union(a, b);
   }
   const map = {};
-  //
   for (let i = 0; i < s.length; i++) {
     const root = uf.find(i);
     if (!map[root]) {

@@ -18,6 +18,18 @@ function minSwapsCouples(row) {
   return n - uf.count;
 }
 
+// function minSwapsCouples(row) {
+//   let len = row.length;
+//   let union = new UF(len);
+//   for (let i = 0; i < len; i += 2) {
+//     union.union(i, i + 1);
+//   }
+//   for (let i = 0; i < len; i += 2) {
+//     union.union(row[i], row[i + 1]);
+//   }
+//   return len / 2 - union.count;
+// }
+
 class UF {
   count = 0;
   size = [];

@@ -17,9 +17,8 @@ function decodeString(s) {
       str = "";
       num = 0;
     } else if (c === "]") {
-      let times = stack.pop();
-      let part = stack.pop();
-      str = part + str.repeat(times);
+      const times = stack.pop();
+      str = stack.pop() + str.repeat(times);
     } else {
       str += c;
     }

@@ -1,5 +1,3 @@
-var arr = [8, 9, 1, 7, 2, 3, 5, 4, 6, 0];
-
 /**
  * 选择排序
  * 算法复杂度：O(n^2)
@@ -17,13 +15,13 @@ function selectionSort(arr) {
         minIndex = j;
       }
     }
+    console.log(minIndex);
     if (minIndex !== i) {
-      let temp = arr[i];
-      arr[i] = arr[minIndex];
-      arr[minIndex] = temp;
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
     }
   }
   console.log(arr);
 }
 
+const arr = [8, 9, 1, 7, 2, 3, 5, 4, 6, 0];
 selectionSort(arr);

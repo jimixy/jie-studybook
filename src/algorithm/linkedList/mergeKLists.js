@@ -1,6 +1,84 @@
 /**
- * 最小堆
+ * 23. 合并K个升序链表
+ * https://leetcode-cn.com/problems/merge-k-sorted-lists/
  */
+
+function mergeKLists(lists) {
+  let dummyHead = new ListNode(-1);
+  let cur = dummyHead;
+  let min = null;
+  while (lists.length > 0) {
+    min = null;
+    for (let i = 0; i < lists.length; i++) {
+      if (lists[i] == null) {
+        continue;
+      }
+      if (min == null || lists[i].val < min.val) {
+        min = lists[i];
+      }
+    }
+    cur.next = min;
+    cur = cur.next;
+    if (!cur) {
+      break;
+    }
+    lists[lists.indexOf(min)] = min.next;
+  }
+  return dummyHead.next;
+}
+
+/** 解法二 */
+function mergeKLists(lists) {
+  let prev = null;
+  for (let i = 0; i < lists.length; i++) {
+    if (!prev) {
+      prev = lists[i];
+      continue;
+    }
+    prev = mergeTwoLists(prev, lists[i]);
+  }
+  return prev;
+}
+
+var mergeTwoLists = function (l1, l2) {
+  let dummy = new ListNode(-1);
+  let p1 = l1;
+  let p2 = l2;
+  let cur = dummy;
+  while (p1 && p2) {
+    if (p1.val < p2.val) {
+      cur.next = p1;
+      p1 = p1.next;
+    } else {
+      cur.next = p2;
+      p2 = p2.next;
+    }
+    cur = cur.next;
+  }
+  // 如果有一条链表已经遍历完了，那么直接将另一个链表的剩余部分接到cur.next;
+  cur.next = p1 ? p1 : p2;
+  return dummy.next;
+};
+
+/**
+ * 解法三
+ */
+
+function mergeKLists(lists) {
+  if (!lists.length) return null;
+  const dummy = new ListNode(-1);
+  let cur = dummy;
+  const minHeap = new MinHeap(lists.length);
+  lists.forEach((k) => k && minHeap.insert(k));
+  while (minHeap.size()) {
+    const node = minHeap.pop();
+    cur.next = node;
+    cur = cur.next;
+    node.next && minHeap.insert(node.next);
+  }
+  return dummy.next;
+}
+
 class MinHeap {
   constructor(max, compare = (a, b) => a.value - b.value) {
     this.heap = [];
@@ -73,31 +151,3 @@ class MinHeap {
     return this.heap.length;
   }
 }
-
-/**
- * @param {number} k
- * @param {number[]} nums
- */
-var KthLargest = function (k, nums) {
-  this.minHead = new MinHeap(k);
-  nums.forEach((m) => {
-    this.minHead.insert(m);
-  });
-};
-
-/**
- * @param {number} val
- * @return {number}
- */
-KthLargest.prototype.add = function (val) {
-  this.minHead.insert(val);
-  return this.minHead.peak();
-};
-
-const kthLargest = new KthLargest(2, [0]);
-
-kthLargest.add(-1); // return 4
-kthLargest.add(1); // return 5
-kthLargest.add(-2); // return 5
-kthLargest.add(-4); // return 8
-kthLargest.add(3); // return 8

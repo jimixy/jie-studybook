@@ -63,7 +63,6 @@ var mergeTwoLists = function (l1, l2) {
 /**
  * 解法三
  */
-
 function mergeKLists(lists) {
   if (!lists.length) return null;
   const dummy = new ListNode(-1);

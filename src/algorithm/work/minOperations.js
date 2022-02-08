@@ -10,7 +10,8 @@
  * 3. 采用滑动窗口，不断的增加right指针，直到right指针指向的元素和等于total - x，然后更新答案
  * 4. 此时，我们停止增加 right，转而不断增加 left 指针缩小窗口 [left, right)，直到窗口中的字符串不再符合要求（不包含 T 中的所有字符了）。同时，每次增加 left，我们都要更新一轮结果。
  * 5. 滑动窗口：https://labuladong.gitee.io/algo/1/11/
- * /
+ **/
+
 function minOperations(nums, x) {
   const target =
     nums.reduce((sum, cur) => {

@@ -12,6 +12,7 @@ function findTargetSumWays(nums, target) {
     if (index === nums.length) {
       return target === 0 ? 1 : 0;
     }
+    // 给 nums[i] 选择 - 号或者 + 号
     const count =
       dfs(nums, index + 1, target - nums[index]) +
       dfs(nums, index + 1, target + nums[index]);

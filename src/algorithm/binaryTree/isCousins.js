@@ -8,6 +8,7 @@ function isCousins(root, x, y) {
   while (queue.length) {
     const len = queue.length;
     let sum = x + y;
+    // 层序遍历
     for (let i = 0; i < len; i++) {
       const { left, right, val } = queue.shift();
       // 同一个父节点下的

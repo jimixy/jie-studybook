@@ -8,7 +8,6 @@ function minDepth(root) {
   }
   const queue = [root];
   let level = 0;
-  let minDepth = Infinity;
   while (queue.length) {
     const len = queue.length;
     level++;
@@ -16,11 +15,11 @@ function minDepth(root) {
       const node = queue.shift();
       // 没有子节点
       if (!node.left && !node.right) {
-        minDepth = Math.min(minDepth, level);
+        return level;
       }
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
     }
   }
-  return minDepth;
+  return level;
 }

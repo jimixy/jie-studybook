@@ -31,3 +31,27 @@ function addTwoNumbers(l1, l2) {
   }
   return result;
 }
+
+addTwoNumbers = function (l1, l2) {
+  let p1 = l1;
+  let p2 = l2;
+  let dummy = new ListNode(-1);
+  let p = dummy;
+  let carry = 0;
+  while (p1 != null || p2 != null || carry > 0) {
+    let val = carry;
+    if (p1 != null) {
+      val += p1.val;
+      p1 = p1.next;
+    }
+    if (p2 != null) {
+      val += p2.val;
+      p2 = p2.next;
+    }
+    carry = parseInt(val / 10);
+    val = val % 10;
+    p.next = new ListNode(val);
+    p = p.next;
+  }
+  return dummy.next;
+};

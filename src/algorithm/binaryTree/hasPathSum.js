@@ -14,17 +14,18 @@ function hasPathSum(root, sum) {
 
 // 解法二
 function hasPathSum(root, targetSum) {
+  if (!root) return false;
   let hasTarget = false;
   const def = (node, sum) => {
-    if (node) {
-      if (!node.left && !node.right) {
-        if (sum + node.val === targetSum) {
-          hasTarget = true;
-        }
+    if (!node) return null;
+    const total = sum + node.val;
+    if (!node.left && !node.right) {
+      if (total === targetSum) {
+        hasTarget = true;
       }
-      if (node.left) def(node.left, sum + node.val);
-      if (node.right) def(node.right, sum + node.val);
     }
+    def(node.left, total);
+    def(node.right, total);
   };
   def(root, 0);
   return hasTarget;

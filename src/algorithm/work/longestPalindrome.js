@@ -4,24 +4,20 @@
  */
 
 const longestPalindrome = function (s) {
-  const map = {};
+  const map = new Map();
   for (let i = 0; i < s.length; i++) {
-    map[s[i]] = (map[s[i]] || 0) + 1;
+    map.set(s[i], (map.get(s[i]) ?? 0) + 1);
   }
-  let sum = 0,
-    hasOdd = false;
-  for (let k in map) {
-    const left = map[k] % 2;
-    if (left !== 0) {
-      hasOdd = true;
+  let bothSide = 0;
+  let center = 0;
+  map.forEach((value) => {
+    const rem = value % 2;
+    bothSide += value - rem;
+    if (rem === 1) {
+      center = 1;
     }
-    sum += map[k] - left;
-  }
-  if (sum % 2 === 0 && hasOdd) {
-    sum += 1;
-  }
-  console.log(sum);
-  return sum;
+  });
+  return bothSide + center;
 };
 
 longestPalindrome("abccccdd");

@@ -39,6 +39,27 @@ const balancedBinaryTree1 = function (root) {
   return recur(root) != -1;
 };
 
+/**
+ * 方式三
+ */
+function isBalanced(root) {
+  let flag = true;
+  const maxDepth = (root) => {
+    if (root == null) {
+      return 0;
+    }
+    if (!flag) return;
+    const leftMaxDepth = maxDepth(root.left);
+    const rightMaxDepth = maxDepth(root.right);
+    if (Math.abs(rightMaxDepth - leftMaxDepth) > 1) {
+      flag = false;
+    }
+    return 1 + Math.max(leftMaxDepth, rightMaxDepth);
+  };
+  maxDepth(root);
+  return flag;
+}
+
 /** 测试 */
 const TreeNode = function (val) {
   this.val = val;
